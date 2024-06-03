@@ -1,4 +1,4 @@
-name: build AuroraLauncher
+name: build launcher
 on:
   workflow_dispatch:
   schedule:
@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - AuroraLauncher/*
+      - launcher/**
 jobs:
   push:
     name: "ptero-eggs:${{ matrix.app }}"
@@ -34,8 +34,8 @@ jobs:
       
       - uses: docker/build-push-action@v5
         with:
-          context: ./AuroraLauncher/${{ matrix.app }}
-          file: ./AuroraLauncher/${{ matrix.app }}/Dockerfile
+          context: ./launcher/${{ matrix.app }}
+          file: ./launcher/${{ matrix.app }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
