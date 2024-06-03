@@ -34,8 +34,8 @@ jobs:
       
       - uses: docker/build-push-action@v5
         with:
-          context: launcher/${{ matrix.app }}
-          file: launcher/${{ matrix.app }}/Dockerfile
+          context: launcher/aurora-core
+          file: launcher/aurora-core/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
